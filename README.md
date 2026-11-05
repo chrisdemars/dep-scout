@@ -1,4 +1,4 @@
-# dep-scout
+# Dep Scout
 
 A small command-line tool for inspecting a project's dependencies.
 
