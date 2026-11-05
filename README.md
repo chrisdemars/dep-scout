@@ -4,9 +4,33 @@ A small command-line tool for inspecting a project's dependencies.
 
 ## Installation
 
-dep-scout is not published to npm. Install it from source.
+**Requirements:** Node.js 20 or later.
 
-**Requirements:** Node.js 20 or later, plus npm and Git.
+```sh
+npm install -g dep-scout
+```
+
+Check that it works:
+
+```sh
+dep-scout --version
+```
+
+If the command isn't found, make sure npm's global `bin` folder is on your `PATH`. Run `npm prefix -g` to find it; the folder is `bin` inside that path on macOS and Linux.
+
+**Updating:** `npm install -g dep-scout@latest`
+
+**Uninstalling:** `npm uninstall -g dep-scout`
+
+### Run without installing
+
+```sh
+npx dep-scout scan
+```
+
+### Install from source
+
+To work on dep-scout itself (requires Git):
 
 ```sh
 git clone https://github.com/chrisdemars/dep-scout.git
@@ -15,27 +39,7 @@ npm install
 npm link
 ```
 
-`npm install` also builds the CLI. `npm link` puts the `dep-scout` command on your `PATH`. Check that it works:
-
-```sh
-dep-scout --version
-```
-
-If the command isn't found, make sure npm's global `bin` folder is on your `PATH`. Run `npm prefix -g` to find it; the folder is `bin` inside that path on macOS and Linux.
-
-**Updating:** in the clone, run `git pull`, then `npm install`. The linked command points at the clone, so it picks up the new build right away.
-
-**Uninstalling:** run `npm unlink -g dep-scout`, then delete the clone.
-
-### Run without installing
-
-To try dep-scout without cloning, run it straight from GitHub with `npx`:
-
-```sh
-npx -p github:chrisdemars/dep-scout dep-scout scan
-```
-
-`npm install -g github:chrisdemars/dep-scout` does not work, because npm can't build the CLI during a global install from Git. Use the clone steps above instead.
+`npm install` also builds the CLI, and `npm link` puts your local build on your `PATH`. To remove it, run `npm unlink -g dep-scout`.
 
 ## Usage
 

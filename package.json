@@ -20,6 +20,14 @@
     "node": ">=20"
   },
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chrisdemars/dep-scout.git"
+  },
+  "homepage": "https://github.com/chrisdemars/dep-scout#readme",
+  "bugs": {
+    "url": "https://github.com/chrisdemars/dep-scout/issues"
+  },
   "devDependencies": {
     "@types/node": "26.6.6",
     "typescript": "7.0.2",
