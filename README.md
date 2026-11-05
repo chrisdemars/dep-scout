@@ -12,11 +12,10 @@ dep-scout is not published to npm. Install it from source.
 git clone https://github.com/chrisdemars/dep-scout.git
 cd dep-scout
 npm install
-npm run build
 npm link
 ```
 
-`npm link` puts the `dep-scout` command on your `PATH`. Check that it works:
+`npm install` also builds the CLI. `npm link` puts the `dep-scout` command on your `PATH`. Check that it works:
 
 ```sh
 dep-scout --version
@@ -24,9 +23,19 @@ dep-scout --version
 
 If the command isn't found, make sure npm's global `bin` folder is on your `PATH`. Run `npm prefix -g` to find it; the folder is `bin` inside that path on macOS and Linux.
 
-**Updating:** in the clone, run `git pull`, `npm install`, then `npm run build`. The linked command points at the clone, so it picks up the new build right away.
+**Updating:** in the clone, run `git pull`, then `npm install`. The linked command points at the clone, so it picks up the new build right away.
 
 **Uninstalling:** run `npm unlink -g dep-scout`, then delete the clone.
+
+### Run without installing
+
+To try dep-scout without cloning, run it straight from GitHub with `npx`:
+
+```sh
+npx -p github:chrisdemars/dep-scout dep-scout scan
+```
+
+`npm install -g github:chrisdemars/dep-scout` does not work, because npm can't build the CLI during a global install from Git. Use the clone steps above instead.
 
 ## Usage
 
