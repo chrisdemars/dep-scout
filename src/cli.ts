@@ -1,10 +1,16 @@
 #!/usr/bin/env node
 import { scan } from "./scan.js";
+import { readVersion } from "./version.js";
 
-const USAGE = "Usage: dep-scout scan [dir]";
+const USAGE = "Usage: dep-scout scan [dir]\n       dep-scout --version";
 
 async function main(argv: string[]): Promise<number> {
   const [command, dir = process.cwd()] = argv;
+
+  if (command === "--version") {
+    console.log(await readVersion());
+    return 0;
+  }
 
   if (command !== "scan") {
     console.error(USAGE);
