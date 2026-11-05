@@ -2,22 +2,31 @@
 
 A small command-line tool for inspecting a project's dependencies.
 
-## Requirements
+## Installation
 
-Node.js 20 or later.
+dep-scout is not published to npm. Install it from source.
 
-## Setup
+**Requirements:** Node.js 20 or later, plus npm and Git.
 
 ```sh
+git clone https://github.com/chrisdemars/dep-scout.git
+cd dep-scout
 npm install
 npm run build
-```
-
-To make the `dep-scout` command available globally from this checkout:
-
-```sh
 npm link
 ```
+
+`npm link` puts the `dep-scout` command on your `PATH`. Check that it works:
+
+```sh
+dep-scout --version
+```
+
+If the command isn't found, make sure npm's global `bin` folder is on your `PATH`. Run `npm prefix -g` to find it; the folder is `bin` inside that path on macOS and Linux.
+
+**Updating:** in the clone, run `git pull`, `npm install`, then `npm run build`. The linked command points at the clone, so it picks up the new build right away.
+
+**Uninstalling:** run `npm unlink -g dep-scout`, then delete the clone.
 
 ## Usage
 
